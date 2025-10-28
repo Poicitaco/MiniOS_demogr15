@@ -1,198 +1,335 @@
-# MiniOS v4.0 - Hệ Điều Hành 16-bit# MiniOS v4.0 - Hệ Điều Hành 16-bit# MiniOS v4.0 - Hệ Điều Hành 16-bit# MiniOS v3.0 - Modular Operating System
+# MiniOS v4.0 - Hệ Điều Hành 16-bit# MiniOS v4.0 - Hệ Điều Hành 16-bit# MiniOS v4.0 - Hệ Điều Hành 16-bit# MiniOS v4.0 - Hệ Điều Hành 16-bit# MiniOS v3.0 - Modular Operating System
 
+<div align="center"><div align="center"><div align="center"><div align="center">[![Assembly](https://img.shields.io/badge/Assembly-x86-blue.svg)](https://nasm.us/)
 
-
-<div align="center"><div align="center"><div align="center">[![Assembly](https://img.shields.io/badge/Assembly-x86-blue.svg)](https://nasm.us/)
-
-
-
-![Version](https://img.shields.io/badge/version-4.0-blue.svg)![Version](https://img.shields.io/badge/version-4.0-blue.svg)[![Architecture](https://img.shields.io/badge/Architecture-Modular-green.svg)]()
+![Version](https://img.shields.io/badge/version-4.0-blue.svg)![Version](https://img.shields.io/badge/version-4.0-blue.svg)![Version](https://img.shields.io/badge/version-4.0-blue.svg)[![Architecture](https://img.shields.io/badge/Architecture-Modular-green.svg)]()
 
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
+
+![Assembly](https://img.shields.io/badge/Assembly-x86-red.svg)![License](https://img.shields.io/badge/license-MIT-green.svg)
+
+![Architecture](https://img.shields.io/badge/16--bit-orange.svg)
 
 ![Assembly](https://img.shields.io/badge/language-x86%20Assembly-red.svg)![License](https://img.shields.io/badge/license-MIT-green.svg)
 
+**Hệ điều hành nhỏ gọn bằng x86 Assembly**
+
 ![Architecture](https://img.shields.io/badge/architecture-16--bit-orange.svg)
+
+[Tính Năng](#-tính-năng) • [Cài Đặt](#-cài-đặt) • [Team](#-team) • [Tài Liệu](TEAM_ASSIGNMENTS.md)
 
 ![Assembly](https://img.shields.io/badge/language-x86%20Assembly-red.svg)![Version](https://img.shields.io/badge/version-4.0-blue.svg)[![License](https://img.shields.io/badge/License-Educational-orange.svg)]()
 
-**Hệ điều hành nhỏ gọn được xây dựng hoàn toàn bằng x86 Assembly**
-
-![Architecture](https://img.shields.io/badge/architecture-16--bit-orange.svg)
-
 </div>
 
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+**Hệ điều hành nhỏ gọn được xây dựng hoàn toàn bằng x86 Assembly**
 
 ---
 
-**Hệ điều hành nhỏ gọn được xây dựng hoàn toàn bằng x86 Assembly**
+![Architecture](https://img.shields.io/badge/architecture-16--bit-orange.svg)
 
 ## 📖 Giới Thiệu
 
+</div>
+
+**MiniOS v4.0** - Hệ điều hành minimal bằng **x86 Assembly (NASM)** cho môn **Hệ Điều Hành**
+
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
+**Giảng viên**: TS. Lê Hoàng Anh - Khoa Công Nghệ Thông Tin
+
+---
+
+**Đặc điểm**:
+
+- ✅ 16-bit Real Mode**Hệ điều hành nhỏ gọn được xây dựng hoàn toàn bằng x86 Assembly**
+
+- ✅ Kiến trúc modular
+
+- ✅ 7 ứng dụng tích hợp## 📖 Giới Thiệu
+
+- ✅ Giao diện tiếng Việt
+
 ![Assembly](https://img.shields.io/badge/language-x86%20Assembly-red.svg)## 🎯 Overview
+
+---
 
 **MiniOS v4.0** là một hệ điều hành minimal được phát triển hoàn toàn bằng **x86 Assembly (NASM)** cho môn học **Hệ Điều Hành** dưới sự hướng dẫn của **TS. Lê Hoàng Anh** - Khoa Công Nghệ Thông Tin.
 
+## 🎯 Tính Năng
+
 [Tính Năng](#-tính-năng) • [Cài Đặt](#-cài-đặt--chạy) • [Hướng Dẫn](#-hướng-dẫn-sử-dụng) • [Team](#-team-members) • [Tài Liệu](#-tài-liệu-kỹ-thuật)
 
-### ✨ Đặc Điểm Nổi Bật
+1. **Terminal** - CLI với 6 lệnh: help, clear, time, date, ver, exit
 
-![Architecture](https://img.shields.io/badge/architecture-16--bit-orange.svg)
+2. **Đồng Hồ** - Real-time clock từ BIOS### ✨ Đặc Điểm Nổi Bật
 
-- ✅ 16-bit Real Mode bootloader
+3. **File Editor** - Virtual FS, 5 files × 256 bytes
+
+4. **Tic Tac Toe** - Game 2 người chơi![Architecture](https://img.shields.io/badge/architecture-16--bit-orange.svg)
+
+5. **Calculator** - Giải PT bậc 2 (Newton-Raphson √)
+
+6. **Thông Tin** - System info & team- ✅ 16-bit Real Mode bootloader
+
+7. **Reboot** - Khởi động lại
 
 - ✅ Kiến trúc modular dễ mở rộng</div>
 
+---
+
 - ✅ 7 ứng dụng tích hợp
+
+## 🏗️ Kiến Trúc
 
 - ✅ Giao diện tiếng ViệtMiniOS v3.0 là một hệ điều hành minimal được viết hoàn toàn bằng x86 Assembly, với **kiến trúc modular** giúp dễ dàng phát triển và mở rộng.
 
-- ✅ Text Mode 80x25
+````
 
----
+Bootloader (512B) → Kernel (16KB)- ✅ Text Mode 80x25
 
----
+├─ Utils:    screen, keyboard, string, time
 
-**Hệ điều hành nhỏ gọn được xây dựng hoàn toàn bằng x86 Assembly**
+├─ Core:     boot, menu, data---
 
-## 🎯 Tính Năng
+└─ Apps:     terminal, clock, editor, game, calculator, about, reboot
 
-## 📋 Mục Lục
+```---
 
-### 1. Terminal 🖥️
 
-Command-line interface với 6 lệnh cơ bản:### ✨ Key Features
+
+**Memory**: 0x7C00 (boot) | 0x1000-0x4FFF (kernel) | 0x9000 (stack)**Hệ điều hành nhỏ gọn được xây dựng hoàn toàn bằng x86 Assembly**
+
+
+
+---## 🎯 Tính Năng
+
+
+
+## 📦 Cài Đặt## 📋 Mục Lục
+
+
+
+### 1. Clone & Dependencies### 1. Terminal 🖥️
+
+```bash
+
+git clone https://github.com/Poicitaco/MiniOS_demogr15.gitCommand-line interface với 6 lệnh cơ bản:### ✨ Key Features
+
+cd MiniOS_demogr15
 
 - `help` - Hiển thị danh sách lệnh
 
-- `clear` - Xóa màn hình- [Giới Thiệu](#-giới-thiệu)
+# Ubuntu/Debian/WSL
+
+sudo apt update && sudo apt install nasm qemu-system-x86- `clear` - Xóa màn hình- [Giới Thiệu](#-giới-thiệu)
+
+````
 
 - `time` - Hiển thị giờ hiện tại
 
-- `date` - Hiển thị ngày- [Tính Năng](#-tính-năng)[Tính Năng](#-tính-năng) • [Cài Đặt](#-cài-đặt--chạy) • [Hướng Dẫn](#-hướng-dẫn-sử-dụng) • [Team](#-team-members) • [Tài Liệu](#-tài-liệu-kỹ-thuật)
+### 2. Build & Run
 
-- `ver` - Version hệ thống
+```bash- `date` - Hiển thị ngày- [Tính Năng](#-tính-năng)[Tính Năng](#-tính-năng) • [Cài Đặt](#-cài-đặt--chạy) • [Hướng Dẫn](#-hướng-dẫn-sử-dụng) • [Team](#-team-members) • [Tài Liệu](#-tài-liệu-kỹ-thuật)
 
-- `exit` - Thoát về menu- [Kiến Trúc](#-kiến-trúc)
+./scripts/build.sh # Build
 
+./scripts/test-qemu.sh # Test trong QEMU- `ver` - Version hệ thống
 
+# hoặc
+
+make run- `exit` - Thoát về menu- [Kiến Trúc](#-kiến-trúc)
+
+````
 
 ### 2. Đồng Hồ & Lịch ⏰- [Yêu Cầu Hệ Thống](#-yêu-cầu-hệ-thống)1. **💻 Terminal** - Interactive command-line interface
 
-- Real-time clock từ BIOS
+### 3. Tạo USB Bootable
 
-- Hiển thị ngày/tháng/năm- [Cài Đặt & Chạy](#-cài-đặt--chạy)
+```bash- Real-time clock từ BIOS
+
+# ⚠️ Cảnh báo: Xóa dữ liệu USB
+
+sudo dd if=build/os-image.bin of=/dev/sdX bs=512- Hiển thị ngày/tháng/năm- [Cài Đặt & Chạy](#-cài-đặt--chạy)
+
+````
 
 - Thứ trong tuần (tiếng Việt)
 
-- Cập nhật liên tục- [Hướng Dẫn Sử Dụng](#-hướng-dẫn-sử-dụng)</div>2. **⏰ Clock & Calendar** - Real-time display từ BIOS
+### 4. VirtualBox
 
+- Tạo VM: Type Other, RAM 64MB- Cập nhật liên tục- [Hướng Dẫn Sử Dụng](#-hướng-dẫn-sử-dụng)</div>2. **⏰ Clock & Calendar** - Real-time display từ BIOS
 
+- Storage → Add CD/DVD → `iso/minios.iso`
 
-### 3. File Editor 📝- [Cấu Trúc Dự Án](#-cấu-trúc-dự-án)
+- Boot### 3. File Editor 📝- [Cấu Trúc Dự Án](#-cấu-trúc-dự-án)
 
-- Virtual file system trong RAM
+---- Virtual file system trong RAM
 
-- Tối đa 5 files- [Phân Công Công Việc](#-phân-công-công-việc)3. **📝 File Editor** - Simple text file editor
+## 📖 Sử Dụng- Tối đa 5 files- [Phân Công Công Việc](#-phân-công-công-việc)3. **📝 File Editor** - Simple text file editor
 
-- Mỗi file 256 bytes
+**Boot**: Nhấn phím → Menu chính- Mỗi file 256 bytes
 
-- Tìm kiếm file theo tên- [Team Members](#-team-members)
+**Menu**: ↑↓ di chuyển, Enter chọn
 
+**Terminal**: `help` xem lệnh- Tìm kiếm file theo tên- [Team Members](#-team-members)
 
+**Calculator**: Nhập a, b, c → Xem kết quả
 
 ### 4. Tic Tac Toe 🎮- [Screenshots](#-screenshots)---4. **🎮 Tic Tac Toe** - Classic 2-player game
 
+---
+
 - Game 2 người chơi
+
+## 👥 Team
 
 - Bảng 3x3- [License](#-license)
 
+**Giảng viên**: TS. Lê Hoàng Anh
+
 - Kiểm tra thắng/thua/hòa
 
-- Interface trực quan5. **ℹ️ About** - System information
+**Nhóm 15**:
+
+- 🏆 **Hoàng Tiến Đạt** (Leader) - Calculator & Architecture- Interface trực quan5. **ℹ️ About** - System information
+
+- **Nguyễn Hữu Đăng Khoa** - File Editor & String
+
+- **Nguyễn Đức Mạnh** - Clock & Time### 5. Calculator 🧮---
+
+- **Phạm Văn Tuấn Kiệt** - Game, Keyboard & Menu
+
+- **Mầu Danh Chiến** - Terminal, UI & Core**Giải Phương Trình Bậc 2**: ax² + bx + c = 0
+
+📋 **Chi tiết phân công**: [TEAM_ASSIGNMENTS.md](TEAM_ASSIGNMENTS.md)- Tính Delta (Δ = b² - 4ac)## 📋 Mục Lục6. **🔄 Reboot** - System restart
+
+---- Thuật toán Newton-Raphson tính √
+
+## 📁 Cấu Trúc- Hiển thị nghiệm chính xác## 🚀 Giới Thiệu
+
+`````- Giao diện Casio fx-580
+
+MiniOS_demogr15/
+
+├── boot/boot.asm         # Bootloader- [Giới Thiệu](#-giới-thiệu)## 🏗️ Modular Architecture
+
+├── kernel/
+
+│   ├── kernel.asm        # Entry point### 6. Thông Tin ℹ️
+
+│   ├── utils/            # screen, keyboard, string, time
+
+│   ├── core/             # boot, menu, data- Thông tin hệ thống**MiniOS v4.0** là một hệ điều hành nhỏ gọn được phát triển hoàn toàn bằng **x86 Assembly (NASM)** cho môn học **Hệ Điều Hành (HDH)** dưới sự hướng dẫn của **TS. Lê Hoàng Anh**. Dự án này nhằm mục đích hiểu sâu về kiến trúc máy tính, quản lý bộ nhớ, và cơ chế hoạt động cơ bản của một hệ điều hành.
+
+│   └── apps/             # 7 applications
+
+├── scripts/              # build.sh, test-qemu.sh- Team members
+
+├── build/                # Output
+
+├── iso/minios.iso        # Bootable ISO- Version info- [Tính Năng](#-tính-năng)
+
+└── README.md
+
+```### 7. Khởi Động Lại 🔄### Đặc Điểm Nổi Bật
 
 
 
-### 5. Calculator 🧮---
-
-**Giải Phương Trình Bậc 2**: ax² + bx + c = 0
-
-- Tính Delta (Δ = b² - 4ac)## 📋 Mục Lục6. **🔄 Reboot** - System restart
-
-- Thuật toán Newton-Raphson tính √
-
-- Hiển thị nghiệm chính xác## 🚀 Giới Thiệu
-
-- Giao diện Casio fx-580
-
-- [Giới Thiệu](#-giới-thiệu)## 🏗️ Modular Architecture
-
-### 6. Thông Tin ℹ️
-
-- Thông tin hệ thống**MiniOS v4.0** là một hệ điều hành nhỏ gọn được phát triển hoàn toàn bằng **x86 Assembly (NASM)** cho môn học **Hệ Điều Hành (HDH)** dưới sự hướng dẫn của **TS. Lê Hoàng Anh**. Dự án này nhằm mục đích hiểu sâu về kiến trúc máy tính, quản lý bộ nhớ, và cơ chế hoạt động cơ bản của một hệ điều hành.
-
-- Team members
-
-- Version info- [Tính Năng](#-tính-năng)
+---- Reboot hệ thống
 
 
 
-### 7. Khởi Động Lại 🔄### Đặc Điểm Nổi Bật
-
-- Reboot hệ thống
-
-- BIOS interrupt 19h- [Kiến Trúc](#-kiến-trúc)```
+## 📚 Tech Stack- BIOS interrupt 19h- [Kiến Trúc](#-kiến-trúc)```
 
 
 
----- ✅ **16-bit Real Mode** - Hoạt động ở chế độ thực 16-bit
+**BIOS Interrupts**: INT 10h (Video), INT 16h (Keyboard), INT 1Ah (Time), INT 19h (Reboot)---- ✅ **16-bit Real Mode** - Hoạt động ở chế độ thực 16-bit
 
 
 
-## 🏗️ Kiến Trúc- ✅ **Bootloader tùy chỉnh** - 512 bytes bootloader- [Yêu Cầu Hệ Thống](#-yêu-cầu-hệ-thống)kernel/
+**Build**: NASM, Make, QEMU, genisoimage## 🏗️ Kiến Trúc- ✅ **Bootloader tùy chỉnh** - 512 bytes bootloader- [Yêu Cầu Hệ Thống](#-yêu-cầu-hệ-thống)kernel/
 
 
 
-```- ✅ **Kiến trúc modular** - Dễ dàng mở rộng và bảo trì
+**LOC**: ~2,350 dòng Assembly````- ✅ **Kiến trúc modular** - Dễ dàng mở rộng và bảo trì
 
-┌─────────────────────────────────┐
 
-│    BOOTLOADER (512 bytes)       │- ✅ **7 chức năng tích hợp** - Terminal, Clock, File Editor, Game, Calculator, About, Reboot- [Cài Đặt & Chạy](#-cài-đặt--chạy)├── kernel.asm # Main entry point
 
-│  - Load kernel vào memory       │
+---┌─────────────────────────────────┐
 
-│  - Jump to kernel entry         │- ✅ **Giao diện tiếng Việt** - Thân thiện với người dùng Việt Nam
 
-└─────────────────────────────────┘
+
+## 🔧 Development│    BOOTLOADER (512 bytes)       │- ✅ **7 chức năng tích hợp** - Terminal, Clock, File Editor, Game, Calculator, About, Reboot- [Cài Đặt & Chạy](#-cài-đặt--chạy)├── kernel.asm # Main entry point
+
+
+
+```bash│  - Load kernel vào memory       │
+
+make clean    # Xóa build
+
+make build    # Build only│  - Jump to kernel entry         │- ✅ **Giao diện tiếng Việt** - Thân thiện với người dùng Việt Nam
+
+make run      # Build + run QEMU
+
+make iso      # Tạo ISO└─────────────────────────────────┘
+
+`````
 
               ↓- ✅ **Text Mode 80x25** - Giao diện console cổ điển- [Hướng Dẫn Sử Dụng](#-hướng-dẫn-sử-dụng)├── utils/ # Reusable utilities
 
-┌─────────────────────────────────┐
+**Debug**:
 
-│       KERNEL (16 KB)            │---- [Cấu Trúc Dự Án](#-cấu-trúc-dự-án)│ ├── screen.asm # Screen operations
+````bash┌─────────────────────────────────┐
 
-├─────────────────────────────────┤
+qemu-system-i386 -drive format=raw,file=build/os-image.bin -monitor stdio
 
-│  📁 Utils                       │## 🎯 Tính Năng- [Phân Công Công Việc](#-phân-công-công-việc)│ ├── keyboard.asm # Keyboard input
+```│       KERNEL (16 KB)            │---- [Cấu Trúc Dự Án](#-cấu-trúc-dự-án)│ ├── screen.asm # Screen operations
 
-│    ├─ screen.asm                │
 
-│    ├─ keyboard.asm              │### 1. **Terminal** 🖥️- [Team Members](#-team-members)│ ├── string.asm # String functions
 
-│    ├─ string.asm                │
+---├─────────────────────────────────┤
 
-│    └─ time.asm                  │- Command-line interface cơ bản
 
-├─────────────────────────────────┤
 
-│  🔧 Core                        │- Hỗ trợ 6 lệnh: `help`, `clear`, `time`, `date`, `ver`, `exit`- [Screenshots](#-screenshots)│ └── time.asm # Time/date functions
+## 📄 License│  📁 Utils                       │## 🎯 Tính Năng- [Phân Công Công Việc](#-phân-công-công-việc)│ ├── keyboard.asm # Keyboard input
 
-│    ├─ boot.asm                  │
 
-│    ├─ menu.asm                  │- Hiển thị thời gian thực và thông tin hệ thống
 
-│    └─ data.asm                  │
+MIT License © 2025 MiniOS Team - Nhóm 15│    ├─ screen.asm                │
+
+
+
+---│    ├─ keyboard.asm              │### 1. **Terminal** 🖥️- [Team Members](#-team-members)│ ├── string.asm # String functions
+
+
+
+<div align="center">│    ├─ string.asm                │
+
+
+
+**⭐ Star nếu hữu ích! ⭐**│    └─ time.asm                  │- Command-line interface cơ bản
+
+
+
+Made with ❤️ by **Nhóm 15** - HDH 2025├─────────────────────────────────┤
+
+
+
+**Đạt • Khoa • Mạnh • Kiệt • Chiến**│  🔧 Core                        │- Hỗ trợ 6 lệnh: `help`, `clear`, `time`, `date`, `ver`, `exit`- [Screenshots](#-screenshots)│ └── time.asm # Time/date functions
+
+
+
+Hướng dẫn: **TS. Lê Hoàng Anh**│    ├─ boot.asm                  │
+
+
+
+🔗 [GitHub](https://github.com/Poicitaco/MiniOS_demogr15) • 📋 [Team Assignments](TEAM_ASSIGNMENTS.md)│    ├─ menu.asm                  │- Hiển thị thời gian thực và thông tin hệ thống
+
+
+
+</div>│    └─ data.asm                  │
+
 
 ├─────────────────────────────────┤- [License](#-license)├── core/ # Core system
 
@@ -236,7 +373,7 @@ Command-line interface với 6 lệnh cơ bản:### ✨ Key Features
 
 0x9000 - 0x9FFF : Stack (4 KB)- Virtual file system (1,680 bytes storage) ├── terminal.asm
 
-```
+````
 
 - Tìm kiếm file theo tên
 
@@ -255,8 +392,6 @@ Command-line interface với 6 lệnh cơ bản:### ✨ Key Features
 - **GNU Make** hoặc bash
 
 - **QEMU** (testing)- Giao diện bảng 3x3
-
-
 
 ### Runtime Requirements- Kiểm tra thắng/thua/hòa### Đặc Điểm Nổi Bật ├── game.asm
 
@@ -280,7 +415,7 @@ Command-line interface với 6 lệnh cơ bản:### ✨ Key Features
 
 - Tính Delta (Δ = b² - 4ac)
 
-```bash
+``````bash
 
 git clone https://github.com/Poicitaco/MiniOS_demogr15.git- Tính căn bậc 2 (thuật toán Newton-Raphson)- ✅ **Bootloader tùy chỉnh** - 512 bytes bootloader```
 
@@ -408,17 +543,17 @@ sync
 
 ### Terminal│    └─ time.asm      - Xử lý thời gian          │### Run in VirtualBox/VMware
 
-```
+``````
 
-$ help          # Xem lệnh├─────────────────────────────────────────────────┤
+$ help # Xem lệnh├─────────────────────────────────────────────────┤
 
-$ time          # Hiện giờ
+$ time # Hiện giờ
 
-$ date          # Hiện ngày│  🔧 Core Module                                 │### 3. **File Editor** 📝
+$ date # Hiện ngày│ 🔧 Core Module │### 3. **File Editor** 📝
 
-$ ver           # Version
+$ ver # Version
 
-$ exit          # Thoát│    ├─ boot.asm      - Boot screen              │
+$ exit # Thoát│ ├─ boot.asm - Boot screen │
 
 ```
 
@@ -446,65 +581,65 @@ $ exit          # Thoát│    ├─ boot.asm      - Boot screen              �
 
 ```
 
-MiniOS_demogr15/│    ├─ editor.asm    - File Editor              │- Tìm kiếm file theo tên
+MiniOS_demogr15/│ ├─ editor.asm - File Editor │- Tìm kiếm file theo tên
 
 ├── boot/
 
-│   └── boot.asm              # Bootloader│    ├─ game.asm      - Tic Tac Toe              │
+│ └── boot.asm # Bootloader│ ├─ game.asm - Tic Tac Toe │
 
 ├── kernel/
 
-│   ├── kernel.asm            # Kernel entry│    ├─ calculator.asm - Quadratic Solver        │## 📚 Documentation
+│ ├── kernel.asm # Kernel entry│ ├─ calculator.asm - Quadratic Solver │## 📚 Documentation
 
-│   ├── utils/                # Utilities
+│ ├── utils/ # Utilities
 
-│   │   ├── screen.asm│    ├─ about.asm     - System Info              │
+│ │ ├── screen.asm│ ├─ about.asm - System Info │
 
-│   │   ├── keyboard.asm
+│ │ ├── keyboard.asm
 
-│   │   ├── string.asm│    └─ reboot.asm    - Reboot                   │### 4. **Tic Tac Toe** 🎮
+│ │ ├── string.asm│ └─ reboot.asm - Reboot │### 4. **Tic Tac Toe** 🎮
 
-│   │   └── time.asm
+│ │ └── time.asm
 
-│   ├── core/                 # Core system└─────────────────────────────────────────────────┘
+│ ├── core/ # Core system└─────────────────────────────────────────────────┘
 
-│   │   ├── boot.asm
+│ │ ├── boot.asm
 
-│   │   ├── menu.asm```- Game 2 người chơi- **[FEATURES.md](FEATURES.md)** - Detailed feature documentation
+│ │ ├── menu.asm```- Game 2 người chơi- **[FEATURES.md](FEATURES.md)** - Detailed feature documentation
 
-│   │   └── data.asm
+│ │ └── data.asm
 
-│   └── apps/                 # Applications
+│ └── apps/ # Applications
 
-│       ├── terminal.asm
+│ ├── terminal.asm
 
-│       ├── clock.asm### Memory Layout- Giao diện bảng 3x3- **[MODULAR_ARCHITECTURE.md](MODULAR_ARCHITECTURE.md)** - Architecture guide
+│ ├── clock.asm### Memory Layout- Giao diện bảng 3x3- **[MODULAR_ARCHITECTURE.md](MODULAR_ARCHITECTURE.md)** - Architecture guide
 
-│       ├── editor.asm
+│ ├── editor.asm
 
-│       ├── game.asm
+│ ├── game.asm
 
-│       ├── calculator.asm
+│ ├── calculator.asm
 
-│       ├── about.asm```- Kiểm tra thắng/thua/hòa- **[REBUILD_CHANGELOG.md](REBUILD_CHANGELOG.md)** - Version history
+│ ├── about.asm```- Kiểm tra thắng/thua/hòa- **[REBUILD_CHANGELOG.md](REBUILD_CHANGELOG.md)** - Version history
 
-│       └── reboot.asm
+│ └── reboot.asm
 
-├── scripts/0x0000 - 0x03FF  : Interrupt Vector Table (IVT)
+├── scripts/0x0000 - 0x03FF : Interrupt Vector Table (IVT)
 
-│   ├── build.sh              # Build script
+│ ├── build.sh # Build script
 
-│   └── test-qemu.sh          # QEMU test0x0400 - 0x04FF  : BIOS Data Area (BDA)- Hướng dẫn chi tiết
+│ └── test-qemu.sh # QEMU test0x0400 - 0x04FF : BIOS Data Area (BDA)- Hướng dẫn chi tiết
 
-├── build/                    # Build output
+├── build/ # Build output
 
-├── iso/                      # ISO image0x0500 - 0x7BFF  : Free conventional memory
+├── iso/ # ISO image0x0500 - 0x7BFF : Free conventional memory
 
 ├── Makefile
 
-├── README.md0x7C00 - 0x7DFF  : Bootloader (512 bytes)## 🛠️ Development
+├── README.md0x7C00 - 0x7DFF : Bootloader (512 bytes)## 🛠️ Development
 
-└── TEAM_ASSIGNMENTS.md       # Phân công chi tiết
+└── TEAM_ASSIGNMENTS.md # Phân công chi tiết
 
 ```0x7E00 - 0x7FFF  : Stack space
 
@@ -522,7 +657,7 @@ MiniOS_demogr15/│    ├─ editor.asm    - File Editor              │- Tìm
 
 **TS. Lê Hoàng Anh** - Khoa Công Nghệ Thông Tin
 
-`````
+```
 
 ### Nhóm 15 - HDH 2025
 
@@ -600,35 +735,27 @@ MiniOS_demogr15/│    ├─ editor.asm    - File Editor              │- Tìm
 
 </table>---## 🏗️ Kiến Trúc2. Add to `kernel/kernel.asm`:
 
-
-
 📋 **Chi tiết phân công**: Xem file [TEAM_ASSIGNMENTS.md](TEAM_ASSIGNMENTS.md)## 📦 Cài Đặt & Chạy
-
-
 
 ---### 1. Clone Repository### Sơ Đồ Hệ Thống```asm
 
-
-
 ## 📸 Screenshots`````bash%include "kernel/apps/myapp.asm"
-
-
 
 ### Boot Screengit clone https://github.com/Otispanhneil/MiniOS_demogr15.git
 
-```
+``````
 
 ===========================================================cd MiniOS_demogr15````
 
-     __  __ _       _  ___  ____  
+     __  __ _       _  ___  ____
 
     |  \/  (_)_ __ (_)/ _ \/ ___| `````
 
-    | |\/| | | '_ \| | | | \___ \ 
+    | |\/| | | '_ \| | | | \___ \
 
     | |  | | | | | | | |_| |___) |┌─────────────────────────────────────────────────┐
 
-    |_|  |_|_|_| |_|_|\___/|____/ 
+    |_|  |_|_|_| |_|_|\___/|____/
 
                     ### 2. Cài Đặt Dependencies
 
@@ -636,11 +763,11 @@ MiniOS_demogr15/│    ├─ editor.asm    - File Editor              │- Tìm
 
          Phát triển bởi Nhóm 15│ BOOTLOADER (512 bytes) │3. Update menu in `kernel/core/menu.asm`
 
-     
+
 
         [████████████████████]#### Ubuntu/Debian
 
-        
+
 
      Nhấn phím bất kỳ để tiếp tục...```bash│ - Load kernel từ disk vào memory │
 
@@ -652,7 +779,7 @@ MiniOS_demogr15/│    ├─ editor.asm    - File Editor              │- Tìm
 
 ### Main Menusudo apt install nasm qemu-system-x86│ - Jump to kernel entry point │**See [MODULAR_ARCHITECTURE.md](MODULAR_ARCHITECTURE.md) for complete guide**
 
-```
+``````
 
            MINI OS v4.0 - NHÓM 15```
 
@@ -676,7 +803,7 @@ MiniOS_demogr15/│    ├─ editor.asm    - File Editor              │- Tìm
 
             7. Khởi Động Lại```┌─────────────────────────────────────────────────┐
 
-```
+`````
 
 
 
@@ -752,13 +879,13 @@ make iso        # Create ISO
 
 make all        # Clean + build + ISO# Hoặc sử dụng Makefile
 
-```
+`````
 
 make│ ├─ boot.asm - Boot screen │## 🎓 Learning Path
 
 ### Debug với QEMU
 
-```
+``````
 
 ```bash
 
@@ -931,7 +1058,7 @@ Khi khởi động, bạn sẽ thấy logo MiniOS với progress bar. Nhấn ph�
 
 7. Khởi Động Lại- ✅ Dễ maintain và mở rộng
 
-`````
+``````
 
 ## 💻 Yêu Cầu Hệ Thống
 
