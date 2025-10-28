@@ -1,15 +1,15 @@
 ; =====================================================
-; QUADRATIC EQUATION CALCULATOR
+; MÁY TÍNH GIẢI PHƯƠNG TRÌNH BẬC 2
 ; =====================================================
-; Solve ax² + bx + c = 0
-; Interface similar to Casio fx-580
+; Giải phương trình: ax² + bx + c = 0
+; Giao diện giống máy tính Casio fx-580
 ; =====================================================
 
 run_calculator:
     call clear_screen
     call draw_header
     
-    ; Draw calculator frame
+    ; Vẽ khung máy tính
     mov dh, 2
     mov dl, 20
     call set_cursor
@@ -17,7 +17,7 @@ run_calculator:
     mov bl, 0x0E
     call print_colored
     
-    ; Display equation format
+    ; Hiển thị dạng phương trình
     mov dh, 4
     mov dl, 25
     call set_cursor
@@ -25,10 +25,10 @@ run_calculator:
     mov bl, 0x0B
     call print_colored
     
-    ; Draw input frame
+    ; Vẽ khung nhập liệu
     call draw_calc_frame
     
-    ; Get coefficient a
+    ; Nhập hệ số a
     mov dh, 7
     mov dl, 23
     call set_cursor
@@ -36,16 +36,16 @@ run_calculator:
     call print_string
     call read_line
     
-    ; Convert a to number and store
+    ; Chuyển chuỗi a thành số và lưu vào biến
     mov si, input_buffer
     call string_to_int
     mov [calc_a], ax
     
-    ; Check if a = 0
+    ; Kiểm tra nếu a = 0 (không phải phương trình bậc 2)
     cmp ax, 0
     je .invalid_a
     
-    ; Get coefficient b
+    ; Nhập hệ số b
     mov dh, 9
     mov dl, 23
     call set_cursor
@@ -57,7 +57,7 @@ run_calculator:
     call string_to_int
     mov [calc_b], ax
     
-    ; Get coefficient c
+    ; Nhập hệ số c
     mov dh, 11
     mov dl, 23
     call set_cursor
@@ -69,10 +69,10 @@ run_calculator:
     call string_to_int
     mov [calc_c], ax
     
-    ; Calculate discriminant: Δ = b² - 4ac
+    ; Tính Delta (biệt thức): Δ = b² - 4ac
     call calculate_discriminant
     
-    ; Display results
+    ; Hiển thị kết quả
     call display_results
     
     jmp .wait_exit
@@ -93,7 +93,7 @@ run_calculator:
     call print_string
     call read_char
     
-    ; Ask if want to solve another equation
+    ; Hỏi có muốn giải phương trình khác không
     call clear_screen
     call draw_header
     

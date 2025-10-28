@@ -1,50 +1,50 @@
 ; =====================================================
-; BOOT SCREEN MODULE
+; MODULE MÀN HÌNH BOOT
 ; =====================================================
-; Màn hình boot với logo MiniOS và thông tin nhóm 15
+; Màn hình khởi động với logo MiniOS và thông tin nhóm 15
 ; =====================================================
 
 show_boot_screen:
-    call clear_screen
+    call clear_screen              ; Xóa màn hình trước
     
-    ; Draw top border
-    mov dh, 4
-    mov dl, 13
+    ; Vẽ viền trên (đường kẻ bằng dấu =)
+    mov dh, 4                      ; Dòng 4
+    mov dl, 13                     ; Cột 13
     call set_cursor
-    mov cx, 54
+    mov cx, 54                     ; CX = số ký tự cần vẽ (54 lần)
 .draw_top:
-    push cx
-    mov al, '='
-    mov bl, 0x09
-    call print_char
-    pop cx
-    loop .draw_top
+    push cx                        ; Lưu CX vào stack
+    mov al, '='                    ; AL = ký tự '='
+    mov bl, 0x09                   ; BL = màu xanh dương
+    call print_char                ; In 1 ký tự
+    pop cx                         ; Lấy CX ra
+    loop .draw_top                ; Lặp lại CX lần (CX tự giảm)
     
-    ; Draw logo - Line 1
-    mov dh, 6
-    mov dl, 13
+    ; Vẽ logo - Dòng 1
+    mov dh, 6                      ; Dòng 6
+    mov dl, 13                     ; Cột 13
     call set_cursor
-    mov si, logo_line1
-    mov bl, 0x0B
-    call print_colored
+    mov si, logo_line1             ; SI trỏ đến chuỗi logo dòng 1
+    mov bl, 0x0B                   ; Màu cyan
+    call print_colored             ; In chuỗi có màu
     
-    ; Draw logo - Line 2
+    ; Vẽ logo - Dòng 2
     mov dh, 7
     mov dl, 13
     call set_cursor
-    mov si, logo_line2
+    mov si, logo_line2             ; Dòng 2 của logo
     mov bl, 0x0B
     call print_colored
     
-    ; Draw logo - Line 3
+    ; Vẽ logo - Dòng 3
     mov dh, 8
     mov dl, 13
     call set_cursor
-    mov si, logo_line3
+    mov si, logo_line3             ; Dòng 3 của logo
     mov bl, 0x0B
     call print_colored
     
-    ; Draw logo - Line 4
+    ; Vẽ logo - Dòng 4
     mov dh, 9
     mov dl, 13
     call set_cursor
