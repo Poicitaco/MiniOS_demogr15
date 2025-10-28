@@ -368,6 +368,55 @@ chmod +x scripts/*.sh
 
 ---
 
+### ❌ Lỗi: `/bin/bash^M: bad interpreter` (QUAN TRỌNG - WSL)
+
+**Nguyên nhân:** File script có Windows line endings (`\r\n`) thay vì Unix (`\n`)
+
+**Giải pháp 1: Dùng dos2unix (KHUYÊN DÙNG)**
+
+```bash
+# Cài dos2unix
+sudo apt install dos2unix -y
+
+# Chuyển đổi tất cả scripts
+dos2unix scripts/*.sh
+
+# Thêm quyền execute
+chmod +x scripts/*.sh
+
+# Chạy lại
+./scripts/test-qemu.sh
+```
+
+**Giải pháp 2: Dùng sed**
+
+```bash
+# Nếu không muốn cài dos2unix
+sed -i 's/\r$//' scripts/*.sh
+chmod +x scripts/*.sh
+```
+
+**Giải pháp 3: Fix trong Git (khuyến nghị cho developer)**
+
+```bash
+# Config Git để tự động convert line endings
+git config core.autocrlf input
+
+# Pull lại
+git pull
+
+# Hoặc reset về clean state
+git reset --hard HEAD
+```
+
+**Nguyên nhân sâu xa:**
+
+- Windows dùng CRLF (`\r\n`)
+- Linux/Unix dùng LF (`\n`)
+- WSL chạy trên Windows nên file có thể bị mixed line endings
+
+---
+
 ### ❌ Lỗi: `genisoimage: command not found`
 
 **Nguyên nhân:** Chưa cài genisoimage
