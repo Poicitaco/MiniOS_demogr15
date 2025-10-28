@@ -532,6 +532,63 @@ xcode-select --install
 
 ---
 
+### ❌ QEMU hiển thị ký tự lạ thay vì tiếng Việt (Font bị lỗi)
+
+**Nguyên nhân:** QEMU text mode không hỗ trợ Unicode/UTF-8. Hiển thị tiếng Việt có dấu phụ thuộc vào font của terminal.
+
+**Triệu chứng:**
+
+- Thấy ký tự như: `╚═╗`, `├─┤`, `▒▓` thay vì chữ Việt
+- Text menu hiển thị sai
+- Chỉ máy tính một số người hiển thị đúng
+
+**Giải pháp:**
+
+**Option 1: Chấp nhận (KHUYÊN DÙNG)**
+
+- MiniOS chạy ở Real Mode 16-bit, không có Unicode
+- Text Mode chỉ hỗ trợ ASCII + Extended ASCII (CP437)
+- Tiếng Việt có dấu là "bonus" nếu terminal hỗ trợ
+- **Chức năng vẫn hoạt động bình thường** dù font lỗi
+
+**Option 2: Dùng VirtualBox thay QEMU**
+
+```bash
+# VirtualBox có font tốt hơn
+sudo apt install virtualbox -y
+
+# Tạo VM và boot từ iso/minios.iso
+```
+
+**Option 3: Chạy trên máy thật (USB boot)**
+
+```bash
+# Tạo USB bootable (⚠️ Xóa dữ liệu USB)
+sudo dd if=build/os-image.bin of=/dev/sdX bs=512
+```
+
+**Option 4: Dùng QEMU với curses mode (terminal font)**
+
+```bash
+qemu-system-i386 -drive format=raw,file=build/os-image.bin -curses
+```
+
+**Lưu ý:**
+
+- Lỗi font **KHÔNG ảnh hưởng** đến logic code
+- Calculator, Game, Terminal vẫn chạy đúng
+- Chỉ là vấn đề hiển thị
+
+**So sánh:**
+
+| Máy                  | Hiển thị           | Lý do                      |
+| -------------------- | ------------------ | -------------------------- |
+| Máy bạn (ảnh 1)      | ✅ Tiếng Việt đúng | Terminal font hỗ trợ UTF-8 |
+| Máy bạn khác (ảnh 2) | ❌ Ký tự lạ        | Terminal font không hỗ trợ |
+| Cả 2 máy             | ✅ Chức năng OK    | Code chạy đúng             |
+
+---
+
 ## 6. Kiểm tra cài đặt thành công
 
 Chạy lệnh sau để test:
@@ -545,9 +602,10 @@ cd ~/MiniOS_demogr15
 
 1. ✅ Build thành công (không có lỗi)
 2. ✅ QEMU mở ra
-3. ✅ Thấy logo MiniOS
+3. ✅ Thấy logo MiniOS (có thể bị lỗi font - OK)
 4. ✅ Nhấn phím → Vào menu
 5. ✅ Có thể chọn Terminal, Clock, Game...
+6. ⚠️ Nếu font lỗi → Xem [mục Font](#-qemu-hiển-thị-ký-tự-lạ-thay-vì-tiếng-việt-font-bị-lỗi)
 
 ---
 
