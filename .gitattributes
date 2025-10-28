@@ -1,10 +1,10 @@
 # Đảm bảo scripts luôn có LF line endings (Unix style)
 *.sh text eol=lf
 
-# Text files
-*.md text
-*.txt text
-*.asm text
+# Text files - always use LF
+*.md text eol=lf
+*.txt text eol=lf
+*.asm text eol=lf
 
 # Binary files
 *.bin binary
