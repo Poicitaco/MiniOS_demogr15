@@ -78,7 +78,7 @@ print_string:
 
 ; Data
 welcome_msg:    db '=================================', 13, 10
-                db '     Mini OS Bootloader v1.0    ', 13, 10
+                db '     Mini OS Bootloader v4.0    ', 13, 10
                 db '=================================', 13, 10, 0
 loading_msg:    db 'Loading kernel...', 13, 10, 0
 error_msg:      db 'ERROR: Disk read failed!', 13, 10, 0
