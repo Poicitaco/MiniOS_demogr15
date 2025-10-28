@@ -4,7 +4,7 @@ ASM = nasm
 BUILD_DIR = build
 ISO_DIR = iso
 BOOT_SRC = boot/boot.asm
-KERNEL_SRC = kernel/kernel_gui.asm
+KERNEL_SRC = kernel/kernel.asm
 BOOT_BIN = $(BUILD_DIR)/boot.bin
 KERNEL_BIN = $(BUILD_DIR)/kernel.bin
 OS_IMAGE = $(BUILD_DIR)/os-image.bin
@@ -39,7 +39,10 @@ $(ISO_IMAGE): $(OS_IMAGE)
 run-iso: $(ISO_IMAGE)
 	@qemu-system-i386 -cdrom $(ISO_IMAGE)
 
+run: $(OS_IMAGE)
+	@qemu-system-i386 -fda $(OS_IMAGE)
+
 clean:
 	@rm -rf $(BUILD_DIR) $(ISO_DIR)
 
-.PHONY: all directories run-iso clean
+.PHONY: all directories run run-iso clean
