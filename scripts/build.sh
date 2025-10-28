@@ -4,9 +4,10 @@
 # ============================================
 # Mục đích: Tự động hóa quá trình build MiniOS
 # Các bước:
-#   1. Xóa các file build cũ (make clean)
-#   2. Build lại toàn bộ (make all)
-#   3. Hiển thị kết quả và hướng dẫn sử dụng
+#   1. Xóa các file build cũ
+#   2. Build bootloader và kernel
+#   3. Tạo OS image và ISO
+#   4. Hiển thị kết quả
 # ============================================
 
 echo "====================================="
@@ -15,16 +16,58 @@ echo "====================================="
 echo ""
 
 # Di chuyển về thư mục gốc của project
-# $(dirname "$0") = thư mục chứa script này (scripts/)
-# /.. = lên thư mục cha (MiniOS/)
 cd "$(dirname "$0")/.."
 
-# Chạy make clean để xóa file build cũ, sau đó make all để build mới
-make clean
-make all
+# Xóa file build cũ
+echo "Xóa file build cũ..."
+rm -rf build iso
 
-# Kiểm tra kết quả build ($? = exit code của lệnh trước đó)
-if [ $? -eq 0 ]; then
+# Tạo thư mục build
+echo "Tạo thư mục build..."
+mkdir -p build
+mkdir -p iso/boot
+
+# Build bootloader
+echo "Biên dịch bootloader..."
+nasm -f bin boot/boot.asm -o build/boot.bin
+if [ $? -ne 0 ]; then
+    echo "LỖI: Không thể biên dịch bootloader!"
+    exit 1
+fi
+
+# Build kernel
+echo "Biên dịch kernel..."
+if [ -f "kernel/kernel.asm" ]; then
+    echo "  → Sử dụng MiniOS v3.0 kernel"
+    nasm -f bin kernel/kernel.asm -o build/kernel.bin
+else
+    echo "  → ERROR: kernel.asm not found!"
+    exit 1
+fi
+if [ $? -ne 0 ]; then
+    echo "LỖI: Không thể biên dịch kernel!"
+    exit 1
+fi
+
+# Tạo OS image
+echo "Tạo OS image..."
+cat build/boot.bin build/kernel.bin > build/os-image.bin
+truncate -s 1440K build/os-image.bin
+
+# Tạo ISO
+echo "Tạo ISO image..."
+cp build/os-image.bin iso/boot/
+if command -v genisoimage >/dev/null 2>&1; then
+    genisoimage -quiet -V "MiniOS" -input-charset iso8859-1 -o iso/minios.iso -b boot/os-image.bin -hide boot.catalog iso
+elif command -v mkisofs >/dev/null 2>&1; then
+    mkisofs -quiet -V "MiniOS" -input-charset iso8859-1 -o iso/minios.iso -b boot/os-image.bin -hide boot.catalog iso
+else
+    echo "CẢNH BÁO: Không tìm thấy genisoimage hoặc mkisofs, không thể tạo ISO"
+    echo "Cài đặt: sudo apt install genisoimage"
+fi
+
+# Kiểm tra kết quả build
+if [ -f "build/os-image.bin" ]; then
     # Build thành công
     echo ""
     echo "====================================="
