@@ -32,9 +32,13 @@ start:
     mov si, loading_msg
     call print_string
     
+    ; Lưu drive number từ BIOS (DL register)
+    ; BIOS tự động set DL = boot drive number khi load bootloader
+    mov [boot_drive], dl
+    
     ; Reset ổ đĩa (INT 13h AH=00h)
     mov ah, 0x00
-    mov dl, 0x00    ; First floppy drive
+    mov dl, [boot_drive]  ; Dùng drive number từ BIOS
     int 0x13
     
     ; Đọc kernel bằng INT 13h AH=02h (Read Sectors)
@@ -46,7 +50,7 @@ start:
     mov ch, 0             ; Cylinder 0
     mov cl, 2             ; Sector bắt đầu = 2 (sector 1 là boot)
     mov dh, 0             ; Head 0
-    mov dl, 0x00          ; Drive 0 (floppy)
+    mov dl, [boot_drive]  ; Dùng drive number từ BIOS
     mov bx, 0x1000        ; Địa chỉ nạp = 0000:1000h
     int 0x13
     
@@ -82,6 +86,9 @@ welcome_msg:    db '=================================', 13, 10
                 db '=================================', 13, 10, 0
 loading_msg:    db 'Loading kernel...', 13, 10, 0
 error_msg:      db 'ERROR: Disk read failed!', 13, 10, 0
+
+; Boot drive number (saved from BIOS DL register)
+boot_drive:     db 0
 
 ; Padding and boot signature
 times 510-($-$$) db 0

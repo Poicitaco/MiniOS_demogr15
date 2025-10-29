@@ -7,6 +7,7 @@
 run_clock:
     call clear_screen
     call draw_header
+    call init_rtc
     
     mov dh, 2
     mov dl, 25
@@ -57,6 +58,12 @@ run_clock:
     mov si, day_buffer
     mov bl, 0x0F
     call print_colored
+    
+    ; Small delay to prevent flickering
+    mov cx, 0x05
+    mov dx, 0x0000
+    mov ah, 0x86
+    int 0x15
     
     ; Check for ESC
     mov ah, 0x01

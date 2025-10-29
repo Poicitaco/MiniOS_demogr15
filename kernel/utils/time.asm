@@ -52,7 +52,7 @@ get_date_string:
     push cx
     push dx
     
-    ; Get date from BIOS
+    ; Get date from BIOS RTC
     mov ah, 0x04
     int 0x1A
     
@@ -72,9 +72,11 @@ get_date_string:
     
     mov byte [date_buffer+5], '/'
     
-    ; Year (20xx)
-    mov byte [date_buffer+6], '2'
-    mov byte [date_buffer+7], '0'
+    ; Year (century in CH, year in CL)
+    mov al, ch
+    call bcd_to_ascii
+    mov [date_buffer+6], ah
+    mov [date_buffer+7], al
     
     mov al, cl
     call bcd_to_ascii
@@ -92,13 +94,16 @@ get_date_string:
 get_day_of_week:
     ; Output: day_buffer chứa tên ngày
     push ax
+    push bx
+    push cx
+    push dx
     
-    mov ah, 0x02
+    ; Get day of week from BIOS RTC
+    mov ah, 0x04
     int 0x1A
+    and al, 0x07    ; AL = day of week (0=Sunday, 1=Monday, ...)
     
-    and ch, 0x07
-    mov al, ch
-    
+    ; Calculate offset in days_of_week string (each day name is 10 chars)
     mov bl, 10
     mul bl
     mov si, days_of_week
@@ -111,6 +116,9 @@ get_day_of_week:
     loop .copy
     mov byte [di], 0
     
+    pop dx
+    pop cx
+    pop bx
     pop ax
     ret
 
@@ -125,4 +133,31 @@ bcd_to_ascii:
     shr ah, 4
     add ah, '0'
     pop bx
+    ret
+
+init_rtc:
+    ; Initialize Real Time Clock
+    push ax
+    push bx
+    
+    ; Check if RTC exists and is working
+    mov ah, 0x02
+    int 0x1A
+    jc .rtc_not_available
+    
+    ; Enable RTC updates
+    mov al, 0x0A
+    out 0x70, al
+    mov al, 0x26    ; 32.768kHz, normal operation
+    out 0x71, al
+    
+    ; Set status register B
+    mov al, 0x0B
+    out 0x70, al
+    mov al, 0x02    ; 24-hour format, BCD mode
+    out 0x71, al
+    
+.rtc_not_available:
+    pop bx
+    pop ax
     ret

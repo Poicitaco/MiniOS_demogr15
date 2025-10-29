@@ -5,14 +5,14 @@
 ; =====================================================
 
 ; Boot screen
-logo_line1:      db "     ___      ___   ___   ___   _   ___    ___   ___ ", 0
+logo_line1:      db "     ___      ___   ___   ___   _   ___    ___ ", 0
 logo_line2:      db "    |  _\/  \  |  _|   _| | | / _ \  / __| ", 0
 logo_line3:      db "    | | | | | | | | | | | | | | (_) | \__ \ ", 0
 logo_line4:      db "    |_| |_| |_|_| |_| |_| |_|  \___/  |___/ ", 0
 logo_line5:      db "                                                      ", 0
 boot_version:    db "                    Phien ban 4.0                     ", 0
-boot_team:       db "           Phat trien boi Nhom 15                     ", 0
-boot_members:    db "     HDH - He Dieu Hanh - Operating System            ", 0
+boot_team:       db "                Phat trien boi Nhom 15                     ", 0
+boot_members:    db "        HDH - He Dieu Hanh - Operating System            ", 0
 boot_msg:        db "           Dang tai cac thanh phan he thong...        ", 0
 boot_progress:   db "[                    ]", 0
 
@@ -50,8 +50,7 @@ clock_help:      db "Nhan ESC de quay lai menu", 0
 time_label:      db "Gio:  ", 0
 date_label:      db "Ngay: ", 0
 day_label:       db "Thu:  ", 0
-days_of_week:    db "Chu Nhat Thu Hai  Thu Ba   Thu Tu   ", 0
-                 db "Thu Nam  Thu Sau  Thu Bay           ", 0
+days_of_week:    db "Chu Nhat ", "Thu Hai  ", "Thu Ba   ", "Thu Tu   ", "Thu Nam  ", "Thu Sau  ", "Thu Bay  ", 0
 
 ; File Editor strings
 editor_title:            db "=== FILE EDITOR ===", 0

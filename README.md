@@ -1,6 +1,21 @@
-# MiniOS v4.0 – Nhóm 15
+# MiniOS v4.0.1 – Nhóm 15
 
-MiniOS là một hệ điều hành giáo dục 16-bit viết hoàn toàn bằng NASM Assembly, chạy ở Real Mode với mục tiêu minh họa quy trình khởi động, quản lý màn hình văn bản và tổ chức kernel theo kiến trúc modular. Phiên bản v4.0 cung cấp giao diện menu đồ họa văn bản và nhiều ứng dụng tích hợp để luyện tập lập trình hệ điều hành mức thấp.
+MiniOS là một hệ điều hành giáo dục 16-bit viết hoàn toàn bằng NASM Assembly, chạy ở Real Mode với mục tiêu minh họa quy trình khởi động, quản lý màn hình văn bản và tổ chức kernel theo kiến trúc modular. Phiên bản v4.0.1 cung cấp giao diện menu đồ họa văn bản và nhiều ứng dụng tích hợp để luyện tập lập trình hệ điều hành mức thấp.
+
+## 🔧 **HOTFIX v4.0.1 - Khắc phục lỗi keyboard**
+
+**Thay đổi trong phiên bản này:**
+
+- ✅ **Fix keyboard hanging**: Thay đổi `read_line` từ blocking sang polling mode
+- ✅ **Thêm ESC key support**: Nhấn ESC để thoát khỏi input bị treo
+- ✅ **Cải thiện tương thích QEMU**: Tốt hơn trên các máy khác nhau
+- ✅ **Emergency exit**: Nếu bị treo, nhấn ESC thay vì phải restart QEMU
+
+**Lỗi đã fix:**
+
+- Editor không phản hồi sau khi nhập tên file và nhấn Enter
+- Cursor nhấp nháy đen và treo hệ thống trong input
+- Keyboard interrupt không nhận diện đúng trên một số máy
 
 ## Tính năng chính
 
@@ -171,7 +186,7 @@ cat kernel/core/data.asm | grep "v4.0"  # Xem version trong code
 
 - **Nhóm 15 – Môn Hệ Điều Hành (HDH)**.
 - **Nhóm trưởng**: Hoàng Tiến Đạt.
-- **Thành viên**: Nguyễn Hữu Đăng Khoa, Nguyễn Đức Mạnh, Nguyễn Ngọc Kiệt, Nguyễn Đức Chiến.
+- **Thành viên**: Nguyễn Hữu Đăng Khoa, Nguyễn Đức Mạnh, Phạm Văn Tuấn Kiệt, Mầu Danh Chiến.
 - Thông tin chi tiết về phân công nhiệm vụ: xem `TEAM_ASSIGNMENTS.md`.
 
 MiniOS v4.0 là nền tảng thuận tiện để học và diễn giải hoạt động của một hệ điều hành nhỏ gọn. Chúc bạn học tập và khám phá vui vẻ!

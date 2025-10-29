@@ -1,45 +1,12 @@
 ; =====================================================
-; KEYBOARD UTILITIES
+; KEYBOARD FIX - Version với timeout để tránh treo
 ; =====================================================
-; Các hàm xử lý bàn phím: đọc phím, đọc dòng
+; Thay thế cho read_line trong kernel/utils/keyboard.asm
 ; =====================================================
 
-read_char:
-    ; Output: AH = scan code, AL = ASCII
-    mov ah, 0x00
-    int 0x16
-    ret
-
-; Alternative read_char with polling (more stable)
-read_char_polling:
-    push bx
-    push cx
-    
-.poll_loop:
-    mov ah, 0x01    ; Check keyboard status
-    int 0x16
-    jnz .key_ready  ; Key available
-    
-    ; Small delay to prevent CPU spinning
-    push cx
-    mov cx, 100
-.delay:
-    loop .delay
-    pop cx
-    jmp .poll_loop
-
-.key_ready:
-    mov ah, 0x00    ; Read key
-    int 0x16
-    
-    pop cx
-    pop bx
-    ret
-
-read_line:
+read_line_fixed:
     ; Input: None
     ; Output: input_buffer chứa chuỗi đã nhập
-    ; Fixed version with polling to prevent hanging
     push ax
     push bx
     push cx
@@ -122,4 +89,30 @@ read_line:
     pop cx
     pop bx
     pop ax
+    ret
+
+; Alternative read_char that doesn't block
+read_char_polling:
+    push bx
+    push cx
+    
+.poll_loop:
+    mov ah, 0x01    ; Check keyboard status
+    int 0x16
+    jnz .key_ready  ; Key available
+    
+    ; Small delay
+    push cx
+    mov cx, 100
+.delay:
+    loop .delay
+    pop cx
+    jmp .poll_loop
+
+.key_ready:
+    mov ah, 0x00    ; Read key
+    int 0x16
+    
+    pop cx
+    pop bx
     ret
